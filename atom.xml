@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>diggrave&#39;s Blog</title>
+  <title>Nero&#39;s Blog</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-16T08:34:19.478Z</updated>
+  <updated>2020-03-16T11:16:25.625Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读《大学》</title>
+    <link href="http://yoursite.com/2020/03/16/%E8%AF%BB%E3%80%8A%E5%A4%A7%E5%AD%A6%E3%80%8B/"/>
+    <id>http://yoursite.com/2020/03/16/%E8%AF%BB%E3%80%8A%E5%A4%A7%E5%AD%A6%E3%80%8B/</id>
+    <published>2020-03-16T11:16:25.000Z</published>
+    <updated>2020-03-16T11:16:25.625Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>模式匹配算法</title>
