@@ -150,6 +150,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Josephus" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/16/Josephus/">Josephus</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/16/Josephus/" class="archive-article-date">
+  	<time datetime="2020-03-16T02:17:39.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>约瑟夫问题是个有名的问题：N个人围成一圈，从第一个开始报数，第M个将被杀掉，最后剩下一个，其余人都将被杀掉。例如N=6，M=5，被杀掉的顺序是：5，4，6，2，3，1。</p>
+<p>代码实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Joseph</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">100</span>]; <span class="comment">//开局每个人的编号</span></span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">0</span>;  <span class="comment">//记录第k个出局的人</span></span><br><span class="line">	<span class="keyword">int</span> p = <span class="number">0</span>;  <span class="comment">//出局人的当前位置</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		a[i] = i + <span class="number">1</span>; <span class="comment">//编号初始化，</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//循环T人</span></span><br><span class="line">	<span class="keyword">while</span> (n &gt; <span class="number">1</span>)&#123;</span><br><span class="line">		p = (p + m - <span class="number">1</span>) % n; <span class="comment">//关键点，计算出圈人的位置</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"第"</span> &lt;&lt; ++k &lt;&lt; <span class="string">"个出圈的是："</span> &lt;&lt; a[p] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="comment">//重新排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = p + <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">			a[j - <span class="number">1</span>] = a[j]; </span><br><span class="line">        <span class="comment">//人数减一</span></span><br><span class="line">		n--;</span><br><span class="line">		<span class="keyword">if</span> (p == n) p = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"最后剩下的是"</span> &lt;&lt; a[p] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithm,约瑟夫问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术分析//" class="article-tag-list-link color1">-技术分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/16/Josephus/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CVE-2010-2883" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -366,6 +454,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">CVE，Windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Algorithm,约瑟夫问题</a>
               </li>
             
             <div class="clearfix"></div>
