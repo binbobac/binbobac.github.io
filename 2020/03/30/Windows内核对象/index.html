@@ -90,15 +90,15 @@
 
 
 
-<meta name="description" content="Windows内核对象管理Windows对象管理器的基本设计意图是： ​    为执行体的数据结构提供一种统一而又可扩展的定义和控制机制。 ​    提供统一的安全访问机制。 ​    在无须修改已有系统代码的情况下，加入新的对象类型。 ​    提供一组标准的API来对对象执行各种操作。 ​    提供一种命名机制，与文件系统的命名机制集成在一起。 每一个对象由两部分构成：对象头和对象体。所有对">
+<meta name="description" content="Windows内核对象管理Windows对象管理器的基本设计意图是： -​ 为执行体的数据结构提供一种统一而又可扩展的定义和控制机制。 ​- 提供统一的安全访问机制。 ​- 在无须修改已有系统代码的情况下，加入新的对象类型。 ​- 提供一组标准的API来对对象执行各种操作。 ​- 提供一种命名机制，与文件系统的命名机制集成在一起。 每一个对象由两部分构成：对象头和对象体。所有对象的对象头都具有统一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows内核对象">
 <meta property="og:url" content="http://yoursite.com/2020/03/30/Windows%E5%86%85%E6%A0%B8%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="Nero&#39;s Blog">
-<meta property="og:description" content="Windows内核对象管理Windows对象管理器的基本设计意图是： ​    为执行体的数据结构提供一种统一而又可扩展的定义和控制机制。 ​    提供统一的安全访问机制。 ​    在无须修改已有系统代码的情况下，加入新的对象类型。 ​    提供一组标准的API来对对象执行各种操作。 ​    提供一种命名机制，与文件系统的命名机制集成在一起。 每一个对象由两部分构成：对象头和对象体。所有对">
+<meta property="og:description" content="Windows内核对象管理Windows对象管理器的基本设计意图是： -​ 为执行体的数据结构提供一种统一而又可扩展的定义和控制机制。 ​- 提供统一的安全访问机制。 ​- 在无须修改已有系统代码的情况下，加入新的对象类型。 ​- 提供一组标准的API来对对象执行各种操作。 ​- 提供一种命名机制，与文件系统的命名机制集成在一起。 每一个对象由两部分构成：对象头和对象体。所有对象的对象头都具有统一">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2020-03-30T03:52:24.000Z">
-<meta property="article:modified_time" content="2020-06-22T15:14:22.790Z">
+<meta property="article:modified_time" content="2020-06-22T15:27:33.687Z">
 <meta property="article:author" content="Nero">
 <meta property="article:tag" content="Windows内核">
 <meta name="twitter:card" content="summary">
@@ -398,11 +398,11 @@
 
       
         <h1 id="Windows内核对象管理"><a href="#Windows内核对象管理" class="headerlink" title="Windows内核对象管理"></a>Windows内核对象管理</h1><p><strong>Windows对象管理器的基本设计意图是：</strong></p>
-<p>​    为执行体的数据结构提供一种统一而又可扩展的定义和控制机制。</p>
-<p>​    提供统一的安全访问机制。</p>
-<p>​    在无须修改已有系统代码的情况下，加入新的对象类型。</p>
-<p>​    提供一组标准的API来对对象执行各种操作。</p>
-<p>​    提供一种命名机制，与文件系统的命名机制集成在一起。</p>
+<p>-​ 为执行体的数据结构提供一种统一而又可扩展的定义和控制机制。</p>
+<p>​- 提供统一的安全访问机制。</p>
+<p>​- 在无须修改已有系统代码的情况下，加入新的对象类型。</p>
+<p>​- 提供一组标准的API来对对象执行各种操作。</p>
+<p>​- 提供一种命名机制，与文件系统的命名机制集成在一起。</p>
 <p>每一个对象由两部分构成：对象头和对象体。所有对象的对象头都具有统一的格式，其定义如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">OBJECT_CREATE_INFORMATION</span> *<span class="title">POBJECT_CREATE_INFORMATION</span>;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">OBJECT_HEADER</span> &#123;</span></span><br><span class="line">    LONG_PTR PointerCount;						<span class="comment">//引用计数</span></span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        LONG_PTR HandleCount;					<span class="comment">//指向该对象的句柄数</span></span><br><span class="line">        PVOID NextToFree;						<span class="comment">//对象被延迟删除时加入到一条链中</span></span><br><span class="line">    &#125;;</span><br><span class="line">    POBJECT_TYPE Type;							<span class="comment">//指向对象的类型对象</span></span><br><span class="line">    UCHAR NameInfoOffset;						<span class="comment">//名称信息的内存偏移</span></span><br><span class="line">    UCHAR HandleInfoOffset;						<span class="comment">//句柄信息的内存偏移</span></span><br><span class="line">    UCHAR QuotaInfoOffset;						<span class="comment">//配额信息的内存偏移</span></span><br><span class="line">    UCHAR Flags;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        POBJECT_CREATE_INFORMATION ObjectCreateInfo;</span><br><span class="line">        PVOID QuotaBlockCharged;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    PSECURITY_DESCRIPTOR SecurityDescriptor;	<span class="comment">//安全描述符</span></span><br><span class="line">    QUAD Body;									<span class="comment">//对象体开始</span></span><br><span class="line">&#125; OBJECT_HEADER, *POBJECT_HEADER;</span><br></pre></td></tr></table></figure>
 
