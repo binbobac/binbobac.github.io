@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-23T14:13:10.111Z</updated>
+  <updated>2020-09-07T14:02:52.473Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++新特性</title>
+    <link href="http://yoursite.com/2020/09/07/C++%E6%96%B0%E7%89%B9%E6%80%A7(%E4%B8%80)/"/>
+    <id>http://yoursite.com/2020/09/07/C++%E6%96%B0%E7%89%B9%E6%80%A7(%E4%B8%80)/</id>
+    <published>2020-09-07T13:35:30.000Z</published>
+    <updated>2020-09-07T14:02:52.473Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="header-files"><a href="#header-files" class="headerlink" title="header files"></a>header files</h2><p>C++ 2.0新特性包括语言和标准库两个层面</p><ul><li>c++标准库的header files不带副档名(.h)</li><li>新式的C header files不带副名称.h,前面要加c</li><li>新式的C header files的副档名仍可用，</li></ul><h2 id="Variadic-Templates-数量不定的模板参数"><a href="#Variadic-Templates-数量不定的模板参数" class="headerlink" title="Variadic Templates 数量不定的模板参数"></a>Variadic Templates 数量不定的模板参数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printX</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>...Types&gt; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Type&amp;... args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; firstArg &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    printX(args...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;header-files&quot;&gt;&lt;a href=&quot;#header-files&quot; class=&quot;headerlink&quot; title=&quot;header files&quot;&gt;&lt;/a&gt;header files&lt;/h2&gt;&lt;p&gt;C++ 2.0新特性包括语言和标准库两个层面&lt;/p&gt;
+&lt;ul
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>常用的正则表达式</title>
