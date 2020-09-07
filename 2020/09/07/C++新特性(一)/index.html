@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -92,14 +92,15 @@
 
 <meta name="description" content="header filesC++ 2.0新特性包括语言和标准库两个层面  c++标准库的header files不带副档名(.h) 新式的C header files不带副名称.h,前面要加c 新式的C header files的副档名仍可用，  Variadic Templates 数量不定的模板参数1234567891011void printX()&amp;#123;&amp;#125;template &amp;l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++新特性">
+<meta property="og:title" content="C++新特性(一)">
 <meta property="og:url" content="http://yoursite.com/2020/09/07/C++%E6%96%B0%E7%89%B9%E6%80%A7(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="Nero&#39;s Blog">
 <meta property="og:description" content="header filesC++ 2.0新特性包括语言和标准库两个层面  c++标准库的header files不带副档名(.h) 新式的C header files不带副名称.h,前面要加c 新式的C header files的副档名仍可用，  Variadic Templates 数量不定的模板参数1234567891011void printX()&amp;#123;&amp;#125;template &amp;l">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2020-09-07T13:35:30.000Z">
-<meta property="article:modified_time" content="2020-09-07T14:02:52.473Z">
+<meta property="article:modified_time" content="2020-09-07T14:05:27.878Z">
 <meta property="article:author" content="Nero">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
 
@@ -136,7 +137,7 @@
 
 
 
-  <title>C++新特性 | Nero's Blog</title>
+  <title>C++新特性(一) | Nero's Blog</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++新特性</h1>
+          <h1 class="post-title" itemprop="name headline">C++新特性(一)</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -380,7 +403,7 @@
 <li>新式的C header files不带副名称.h,前面要加c</li>
 <li>新式的C header files的副档名仍可用，</li>
 </ul>
-<h2 id="Variadic-Templates-数量不定的模板参数"><a href="#Variadic-Templates-数量不定的模板参数" class="headerlink" title="Variadic Templates 数量不定的模板参数"></a>Variadic Templates 数量不定的模板参数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printX</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>...Types&gt; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Type&amp;... args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; firstArg &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    printX(args...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Variadic-Templates-数量不定的模板参数"><a href="#Variadic-Templates-数量不定的模板参数" class="headerlink" title="Variadic Templates 数量不定的模板参数"></a>Variadic Templates 数量不定的模板参数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printX</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>...Types&gt; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> T&amp; firstArg, <span class="keyword">const</span> Types&amp;... args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; firstArg &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    printX(args...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -394,6 +417,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
       
 
       
@@ -506,7 +535,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -517,7 +546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
